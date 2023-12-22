@@ -1,12 +1,6 @@
-var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
+var builder = WebApplication.CreateEmptyBuilder(args);
 
 var app = builder.Build();
-
-app.UseHttpsRedirection();
 
 var summaries = new[]
 {
@@ -24,8 +18,7 @@ app.MapGet("/weatherforecast", () =>
         ))
         .ToArray();
     return forecast;
-})
-.WithName("GetWeatherForecast");
+});
 
 app.Run();
 
